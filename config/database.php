@@ -7,7 +7,7 @@ $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"], 1);
 
-$conn = new mysqli($host, $username, $password, $db);
+$conn = pg_connect("host=pellefant.db.elephantsql.com port=5432 dbname=jcxgmdxg user=jcxgmdxg password=oLGiw3F00Zbig8Bi5VSAigmKQAiDiVJI");
 
 return [
 
