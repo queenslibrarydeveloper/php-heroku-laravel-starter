@@ -1,13 +1,7 @@
 <?php
 
-$url = parse_url(getenv("DATABASE_URL"));
-
-$host = $url["host"];
-$username = $url["user"];
-$password = $url["pass"];
-$database = substr($url["path"], 1);
-
-$conn = new pg_connect($host, $username, $password, $db);
+$conn_string = "host=pellefant.db.elephantsql.com port=5432 dbname=jcxgmdxg user=jcxgmdxg password=-1SnyzC6-vdo9f4HeY-LFG5RHo4PYB9O";
+$dbconn4 = pg_connect($conn_string);
 
 return [
 
