@@ -1,7 +1,13 @@
 <?php
 
-$conn_string = "host=pellefant.db.elephantsql.com port=5432 dbname=jcxgmdxg user=jcxgmdxg password=-1SnyzC6-vdo9f4HeY-LFG5RHo4PYB9O";
-$dbconn4 = pg_connect($conn_string);
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+$host = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
+
+$conn = new mysqli($host, $username, $password, $db);
 
 return [
 
@@ -29,7 +35,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -85,11 +91,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', 'pellefant.db.elephantsql.com'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'jcxgmdxg'),
-            'username' => env('DB_USERNAME', 'jcxgmdxg'),
-            'password' => env('DB_PASSWORD', '-1SnyzC6-vdo9f4HeY-LFG5RHo4PYB9O'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
